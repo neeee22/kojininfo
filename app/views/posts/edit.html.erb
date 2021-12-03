@@ -1,0 +1,11 @@
+<h1>編集</h1>
+<%= @post.name %> | <%= @post.address %> | <%= @post.mail %> <%= link_to '削除', post_path(@post.id),method: :delete %>
+
+<%= form_with(model: @post, local: true) do |f| %>
+  <%= f.text_field :name, placeholder: "氏名", autocomplete: 'off' %>
+  <%= f.text_field :address, placeholder: "住所", autocomplete: 'off' %>
+  <%= f.text_field :mail, placeholder: "メールアドレス", autocomplete: 'off' %>
+  <%= f.submit '編集する' %>
+<% end %>
+
+<%= link_to '戻る', root_path,method: :get %>

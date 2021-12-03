@@ -1,0 +1,7 @@
+<h1>検索結果</h1>
+<% @posts.each do |post|%>
+  <div class="post">
+    <%= post.name %> <%= post.address %> <%= post.mail %> <%= link_to '編集', edit_post_path(post.id),method: :get %> <%= link_to '削除', post_path(post.id),method: :delete %>
+  </div>
+<% end %>
+<%= link_to '戻る', root_path,method: :get %>

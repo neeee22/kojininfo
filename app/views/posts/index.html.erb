@@ -1,0 +1,23 @@
+<h1>個人情報</h1>
+
+<%= form_with(url: search_posts_path, local: true, method: :get) do |f| %>
+  <%= f.text_field :keyword, placeholder: "検索", autocomplete: 'off' %>
+  <%= f.submit "検索" %>
+<% end %>
+
+<%= form_with(model: @post, local: true) do |f| %>
+  <%= render 'layouts/error_messages', model: f.object %>
+  
+  <%= f.text_field :name, placeholder: "氏名", autocomplete: 'off' %>
+  <%= f.text_field :address, placeholder: "住所", autocomplete: 'off' %>
+  <%= f.text_field :mail, placeholder: "メールアドレス", autocomplete: 'off' %>
+  <%= f.submit '登録' %>
+
+<% end %>
+
+
+<% @posts.each do |post|%>
+  <div class="post">
+    <%= post.name %> <%= post.address %> <%= post.mail %> <%= link_to '編集', edit_post_path(post.id),method: :get %> <%= link_to '削除', post_path(post.id),method: :delete %>
+  </div>
+<% end %>

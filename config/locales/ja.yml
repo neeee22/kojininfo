@@ -1,0 +1,7 @@
+ja:
+  activerecord:
+    attributes:
+      post:
+        name: 氏名
+        address: 住所
+        mail: メールアドレス

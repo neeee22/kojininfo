@@ -2,6 +2,7 @@
 <%= @post.name %> | <%= @post.address %> | <%= @post.mail %> <%= link_to '削除', post_path(@post.id),method: :delete %>
 
 <%= form_with(model: @post, local: true) do |f| %>
+  <%= render 'layouts/error_messages', model: f.object %>
   <%= f.text_field :name, placeholder: "氏名", autocomplete: 'off' %>
   <%= f.text_field :address, placeholder: "住所", autocomplete: 'off' %>
   <%= f.text_field :mail, placeholder: "メールアドレス", autocomplete: 'off' %>
